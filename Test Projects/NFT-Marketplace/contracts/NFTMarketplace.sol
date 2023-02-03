@@ -115,8 +115,7 @@ contract NFTMarketplace is ERC721URIStorage {
         ListedToken[] memory tokens = new ListedToken[](nftCount);
         uint currentIndex = 0;
         uint currentId;
-        //at the moment currentlyListed is true for all, if it becomes false in the future we will 
-        //filter out currentlyListed == false over here
+        //at the moment currentlyListed is true for all
         for(uint i=0;i<nftCount;i++)
         {
             currentId = i + 1;
@@ -142,7 +141,7 @@ contract NFTMarketplace is ERC721URIStorage {
             }
         }
 
-        //Once you have the count of relevant NFTs, create an array then store all the NFTs in it
+        //Once we have the count of relevant NFTs, create an array then store all the NFTs in it
         ListedToken[] memory items = new ListedToken[](itemCount);
         for(uint i=0; i < totalItemCount; i++) {
             if(idToListedToken[i+1].owner == msg.sender || idToListedToken[i+1].seller == msg.sender) {
@@ -167,7 +166,7 @@ contract NFTMarketplace is ERC721URIStorage {
 
         //Actually transfer the token to the new owner
         _transfer(address(this), msg.sender, tokenId);
-        //approve the marketplace to sell NFTs on your behalf
+        //approve the marketplace to sell NFTs on our behalf
         approve(address(this), tokenId);
 
         //Transfer the listing fee to the marketplace creator

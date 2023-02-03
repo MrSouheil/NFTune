@@ -28,6 +28,12 @@ export default function SellNFT () {
         }
     }
 
+    //This function uploads the NFT audio to database
+    async function OnChangeMusicFile(e) {
+        //check for file extension
+        //try catch upload file to db
+    }
+
     //This function uploads the metadata to IPFS
     async function uploadMetadataToIPFS() {
         const {name, description, price} = formParams;
@@ -94,11 +100,11 @@ export default function SellNFT () {
             <h3 className="text-center font-bold text-purple-500 mb-8">Upload your NFT to the marketplace</h3>
                 <div className="mb-4">
                     <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="name">NFT Name</label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Axie#4563" onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name}></input>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name" onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name}></input>
                 </div>
                 <div className="mb-6">
                     <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="description">NFT Description</label>
-                    <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols="40" rows="5" id="description" type="text" placeholder="Axie Infinity Collection" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})}></textarea>
+                    <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols="40" rows="5" id="description" type="text" placeholder="NFT Example, Collection 1, Benefits" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})}></textarea>
                 </div>
                 <div className="mb-6">
                     <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="price">Price (in ETH)</label>
@@ -106,7 +112,11 @@ export default function SellNFT () {
                 </div>
                 <div>
                     <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="image">Upload Image</label>
-                    <input type={"file"} onChange={OnChangeFile}></input>
+                    <input type={"file"} accept="video/*|image/*" onChange={OnChangeFile}></input>
+                </div>
+                <div>
+                    <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="audio">Upload Audio</label>
+                    <input type={"file"} accept="audio/*" onChange={OnChangeMusicFile}></input>
                 </div>
                 <br></br>
                 <div className="text-green text-center">{message}</div>
