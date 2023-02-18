@@ -11,8 +11,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 
-function Navbar() {
-
+function Navbar(props) {
 const [connected, toggleConnect] = useState(false);
 const location = useLocation();
 const [currAddress, updateAddress] = useState('0x');
@@ -24,15 +23,7 @@ async function getAddress() {
   const addr = await signer.getAddress();
   updateAddress(addr);
 }
-
-function updateButton() {
-  const ethereumButton = document.querySelector('.enableEthereumButton');
-  ethereumButton.textContent = "Connected";
-  ethereumButton.classList.remove("hover:bg-blue-70");
-  ethereumButton.classList.remove("bg-blue-500");
-  ethereumButton.classList.add("hover:bg-green-70");
-  ethereumButton.classList.add("bg-green-500");
-}
+let ButtonClassNames=`${connected?'hover:bg-green-70 bg-green-500': 'hover:bg-blue-70 bg-blue-500'} text-white font-bold py-2 px-4 rounded text-sm`;
 
 async function connectWebsite() {
 
@@ -45,32 +36,50 @@ async function connectWebsite() {
         params: [{ chainId: '0x5' }],
      })
     }  
-    await window.ethereum.request({ method: 'eth_requestAccounts' })
-      .then(() => {
-        updateButton();
-        console.log("here");
-        getAddress();
-        window.location.replace(location.pathname)
-      });
-}
-
-  useEffect(() => {
-    let val = window.ethereum.isConnected();
-    if(val)
-    {
-      console.log("here");
-      getAddress();
-      toggleConnect(val);
-      updateButton();
+    try{
+      if(connected){
+        window.ethereum.send({
+          method: 'eth_requestAccounts',
+          params: [],
+          from: window.ethereum.selectedAddress,
+        }, function (err, result) {
+          if (!err) {
+            console.log('Successfully logged out of MetaMask');
+            updateAddress("0x")
+          } else {
+            console.error(err);
+          }
+        });
+        
+      }else{
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        updateAddress(accounts[0])
+      }
+      
     }
+    catch(e){
+      console.log(e)
+    }
+   
+}
+//recalled on address change
+useEffect(() => {
+  if(currAddress=='0x'){
+    toggleConnect(false);
+  }else{
+    toggleConnect(true);
+  }
+},[currAddress])
+  useEffect(() => {
 
     window.ethereum.on('accountsChanged', function(accounts){
       window.location.replace(location.pathname)
     })
   });
+  //recalled once the user opens the website first
 
     return (
-      <div className="">
+      <>
         <nav className="w-screen">
           <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
@@ -110,7 +119,7 @@ async function connectWebsite() {
               </li>              
               }  
               <li>
-                <button className="enableEthereumButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm" onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
+                <button className={ButtonClassNames} onClick={connectWebsite}>{connected? "Connected":"Connect Wallet"}</button>
               </li>
             </ul>
           </li>
@@ -119,7 +128,7 @@ async function connectWebsite() {
         <div className='text-white text-bold text-right mr-10 text-sm'>
           {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view NFTs"} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
         </div>
-      </div>
+      </>
     );
   }
 

@@ -65,7 +65,7 @@ export default function Profile () {
 
     return (
         <div className="profileClass" style={{"min-height":"100vh"}}>
-            <Navbar></Navbar>
+            
             <div className="profileClass">
             <div className="flex text-center flex-col mt-11 md:text-2xl text-white">
                 <div className="mb-5">
