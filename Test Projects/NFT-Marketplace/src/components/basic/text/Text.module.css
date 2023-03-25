@@ -1,0 +1,37 @@
+@font-face {
+    font-family: DarkerGrotesqueMedium;
+    src: url(../../../fonts/DarkerGrotesque-Medium.ttf) format('opentype');
+}
+@font-face {
+    font-family: DarkerGrotesqueSemiBold;
+    src: url(../../../fonts/DarkerGrotesque-SemiBold.ttf) format('opentype');
+}
+@font-face {
+    font-family: DarkerGrotesqueBlack;
+    src: url(../../../fonts/DarkerGrotesque-Black.ttf) format('opentype');
+}
+@font-face {
+    font-family: Quicksand;
+    src: url(../../../fonts/Quicksand-Regular.ttf) format('opentype');
+}
+
+.title{
+    font-family: DarkerGrotesqueBlack;
+    color:white;
+    font-size: 70px;
+}
+.subTitle{
+    font-family: DarkerGrotesqueSemiBold;
+    color:white;
+    font-size: 40px;
+}
+.text{
+    font-family: DarkerGrotesqueMedium;
+    color: white;
+    font-size: 30px;
+}
+.button{
+    font-family:Quicksand;
+    font-size: 20px;
+    
+}

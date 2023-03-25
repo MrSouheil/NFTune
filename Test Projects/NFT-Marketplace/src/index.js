@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import particlesConfig from "./components/config/particlesConfig-Stars";
 import reportWebVitals from './reportWebVitals';
 import Forms from './components/forms';
 import {
@@ -17,12 +14,11 @@ import SellNFT from './components/SellNFT';
 import Marketplace from './components/Marketplace';
 import Profile from './components/Profile';
 import NFTPage from './components/NFTpage';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
+import Homepage from './components/Homepage';
+import AboutUs from './components/AboutUs'
+import { Nav } from 'react-bootstrap';
 
-const particlesInit = async (main) => {
-  console.log(main);
-  await loadFull(main);
-};
 
 if (typeof web3 !== 'undefined') {
   // web3 is available, proceed with MetaMask functionality
@@ -32,23 +28,20 @@ if (typeof web3 !== 'undefined') {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <>
+  <Navbar></Navbar>
     <BrowserRouter>
-    <Navbar/>
       <Routes>
-      <Route path="/" element={<Forms/>}/>
+      <Route path="/" element={<Homepage/>}/>
         <Route path="/nftPage" element={<Marketplace />}/>
+        <Route path="/about-us" element={<AboutUs />}/>
         <Route path="/sellNFT" element={<SellNFT />}/> 
         <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
         <Route path="/profile" element={<Profile />}/> 
       </Routes>
     </BrowserRouter>
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particlesConfig}
-      />
     </>
 );
 

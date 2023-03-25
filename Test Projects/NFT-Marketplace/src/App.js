@@ -15,8 +15,8 @@ import {
 function App() {
   return (
         <Routes>
-          <Route path="/" element={<Marketplace />}/>
-          <Route path="/nftPage" element={<NFTPage />}/>        
+          <Route path="/login" element={<Marketplace />}/>
+          <Route path="/" element={<NFTPage />}/>        
           <Route path="/profile" element={<Profile />}/>
           <Route path="/sellNFT" element={<SellNFT />}/>             
         </Routes>
