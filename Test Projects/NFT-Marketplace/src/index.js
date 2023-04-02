@@ -17,7 +17,9 @@ import NFTPage from './components/NFTpage';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage';
 import AboutUs from './components/AboutUs'
+import Explore from './components/Explore';
 import { Nav } from 'react-bootstrap';
+import Footer from './components/Footer/Footer';
 
 
 if (typeof web3 !== 'undefined') {
@@ -38,10 +40,12 @@ root.render(
         <Route path="/nftPage" element={<Marketplace />}/>
         <Route path="/about-us" element={<AboutUs />}/>
         <Route path="/sellNFT" element={<SellNFT />}/> 
+        <Route path="/Explore" element={<Explore />}/> 
         <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
         <Route path="/profile" element={<Profile />}/> 
       </Routes>
     </BrowserRouter>
+    <Footer></Footer>
     </>
 );
 

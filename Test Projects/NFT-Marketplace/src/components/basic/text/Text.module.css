@@ -14,24 +14,33 @@
     font-family: Quicksand;
     src: url(../../../fonts/Quicksand-Regular.ttf) format('opentype');
 }
+@font-face {
+    font-family: Quantico;
+    src: url(../../../fonts/Quantico-Regular.ttf) format('opentype');
+}
 
 .title{
     font-family: DarkerGrotesqueBlack;
-    color:white;
-    font-size: 70px;
+    
+    font-size: 42px;
 }
 .subTitle{
     font-family: DarkerGrotesqueSemiBold;
-    color:white;
-    font-size: 40px;
+   
+    font-size: 32px;
 }
 .text{
     font-family: DarkerGrotesqueMedium;
     color: white;
-    font-size: 30px;
+    font-size: 18px;
 }
 .button{
     font-family:Quicksand;
-    font-size: 20px;
+    font-size: 18px;
     
+}
+.data{
+    font-family:Quantico;
+    font-size: 42px;
+    color: white;
 }
