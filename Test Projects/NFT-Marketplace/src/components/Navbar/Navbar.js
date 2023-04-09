@@ -10,7 +10,7 @@ import Button from "../basic/button/Button";
 const Navbar = () =>{
     const [navmenu,setNavmenu] = useState(true);
     return(
-        <Sheet className="mx-auto z-10">
+        <Sheet className="mx-auto z-10 relative">
         <div className={'flex justify-between items-center'}>
             <img className="max-w-[8rem]" src={logo}></img>
             <div className="flex gap-[3.3125rem] items-center">

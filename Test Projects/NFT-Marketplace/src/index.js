@@ -20,6 +20,7 @@ import AboutUs from './components/AboutUs'
 import Explore from './components/Explore';
 import { Nav } from 'react-bootstrap';
 import Footer from './components/Footer/Footer';
+import Background from './components/background/Background';
 
 
 if (typeof web3 !== 'undefined') {
@@ -34,6 +35,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   <Navbar></Navbar>
+  <Background></Background>
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Homepage/>}/>
