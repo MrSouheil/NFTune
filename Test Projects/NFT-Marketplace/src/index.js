@@ -21,6 +21,8 @@ import Explore from './components/Explore';
 import { Nav } from 'react-bootstrap';
 import Footer from './components/Footer/Footer';
 import Background from './components/background/Background';
+import UploadNft from './components/UploadNft';
+import MyNfts from './components/MyNfts';
 
 
 if (typeof web3 !== 'undefined') {
@@ -41,10 +43,10 @@ root.render(
       <Route path="/" element={<Homepage/>}/>
         <Route path="/nftPage" element={<Marketplace />}/>
         <Route path="/about-us" element={<AboutUs />}/>
-        <Route path="/sellNFT" element={<SellNFT />}/> 
+        <Route path="/sellNFT" element={<UploadNft/>}/> 
         <Route path="/Explore" element={<Explore />}/> 
         <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
-        <Route path="/profile" element={<Profile />}/> 
+        <Route path="/profile" element={<MyNfts />}/> 
       </Routes>
     </BrowserRouter>
     <Footer></Footer>

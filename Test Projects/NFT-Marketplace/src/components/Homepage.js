@@ -15,7 +15,7 @@ const Homepage = () =>{
             
             <Sheet className=''>
                 <div className="grid grid-cols-2 items-center">
-                <div className="">
+                <div className="align-self-start">
                 <div className="">
                 <Text className={'max-w-[509px] leading-[40px] text-white'} type={'title'}>Discover,Collect,Buy and sell EXTRAORDINARY NFTsongs!</Text>
                 <Text className={'mb-[10px] text-white'} type={'subTitle'}>Buy NFT songs and make it yours for eternity</Text>

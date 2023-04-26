@@ -16,7 +16,7 @@ const Navbar = () =>{
             <div className="flex gap-[3.3125rem] items-center">
             {navmenu ?<Links data={data}></Links>:''}
             <img className="max-w-[36px] animate-spin h-fit" alt={'disco-logo'} src={disco} onClick={ () => {setNavmenu(!navmenu)}}></img>
-            <Button>My profile</Button>
+            <Button onClick={()=>{window.location.href='/profile'}}>My profile</Button>
             </div>
         </div>
         </Sheet>

@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7029bac7.css",
+    "main.js": "/static/js/main.b3021233.js",
+    "static/js/787.be41429e.chunk.js": "/static/js/787.be41429e.chunk.js",
+    "static/media/tile.jpeg": "/static/media/tile.d490ae250fe4f4d142b0.jpeg",
+    "static/media/mobile.png": "/static/media/mobile.93c835575b0631ec0923.png",
+    "static/media/abt-us-footage.png": "/static/media/abt-us-footage.d9f4248c9ffd30d17c92.png",
+    "static/media/end-bg.jpg": "/static/media/end-bg.3d6160783de26fcc6e9c.jpg",
+    "static/media/DarkerGrotesque-Black.ttf": "/static/media/DarkerGrotesque-Black.a691fb20108b14da097c.ttf",
+    "static/media/DarkerGrotesque-SemiBold.ttf": "/static/media/DarkerGrotesque-SemiBold.b0f6731d2009f9b61384.ttf",
+    "static/media/Quicksand-Regular.ttf": "/static/media/Quicksand-Regular.04b11c8f0d4d58c1bed1.ttf",
+    "static/media/DarkerGrotesque-Medium.ttf": "/static/media/DarkerGrotesque-Medium.49191f670c0c29636a4b.ttf",
+    "static/media/logo.png": "/static/media/logo.58becc08870c8353607f.png",
+    "static/media/disco.png": "/static/media/disco.015f17f8936245661e7b.png",
+    "static/media/Quantico-Regular.ttf": "/static/media/Quantico-Regular.3faac7b366ab13616d56.ttf",
+    "static/media/metamask.png": "/static/media/metamask.8ac54faaeeb6e823b2e8.png",
+    "static/media/full_logo.png": "/static/media/full_logo.4ff31c2779193816cee4.png",
+    "index.html": "/index.html",
+    "main.7029bac7.css.map": "/static/css/main.7029bac7.css.map",
+    "main.b3021233.js.map": "/static/js/main.b3021233.js.map",
+    "787.be41429e.chunk.js.map": "/static/js/787.be41429e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7029bac7.css",
+    "static/js/main.b3021233.js"
+  ]
+}
