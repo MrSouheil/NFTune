@@ -4,6 +4,7 @@ import Sheet from './basic/sheet/Sheet'
 import Grid from './basic/grid/Grid'
 import Cards from './Profiles/Cards'
 import Playing from './NowPlaying/Playing'
+import ListCard from './AllList/ListCard'
 const MyNfts = () => {
   return (
     <section className="w-screen relative h-fit mb-10">
@@ -16,8 +17,25 @@ const MyNfts = () => {
                 <Cards title='Total Balance'><Text type={'text'} className={'text-white'}>20 ETH  </Text></Cards>
             </Grid>
             <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>My playlist</Text>
-            <Text type={'subtitle'} className={'text-white mb-[20px]'}>Now Playing</Text>
+            <Text type={'subTitle'} className={'text-white mb-[20px]'}>Now Playing</Text>
             <Playing></Playing>
+            <Text type={'subTitle'} className={'text-white mb-5'}View All List></Text>
+            <Grid className='gap-y-[20px] mb-[20px]' lg={'3'} md='2' def='1'>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+              <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+            </Grid>
+            <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text>
+            
         </Sheet>
     </section>
   )

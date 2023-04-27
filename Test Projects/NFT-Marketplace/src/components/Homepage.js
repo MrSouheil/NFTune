@@ -40,7 +40,7 @@ const Homepage = () =>{
                 </div>
                 </div>
                 </div>
-                <img className="max-w-[44rem]" src={mobile}></img>
+                <img className="max-w-[37rem]" src={mobile}></img>
                 </div>
                 <div >
                     <Text type={'text'}>powered by</Text>
