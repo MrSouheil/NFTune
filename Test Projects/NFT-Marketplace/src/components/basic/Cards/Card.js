@@ -7,7 +7,7 @@ import Text from '../text/Text';
 
 const Card = (props) => {
   return (
-    <div className={`relative overflow-hidden rounded-[20px] ${props.className} drop-shadow-[-16px_4px_9px_rgba(0,0,0,0.25)] h-[200px] bg-[]`}>
+    <div className={`relative overflow-hidden rounded-[20px] ${props.className} drop-shadow-[-16px_4px_9px_rgba(0,0,0,0.25)] h-[453px] bg-[#EEEEEE66]`}>
        {/*} <img className='h-full w-full' src={'https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0'} alt={'token image'}></img>*/}
         <div className='absolute bottom-0 h-[35%] bg-[rgb(255 255 255 / 60%)] w-full rounded-[20px] bg-white/[.6]'>
             <div className='w-[90%] mx-auto h-full relative'>
