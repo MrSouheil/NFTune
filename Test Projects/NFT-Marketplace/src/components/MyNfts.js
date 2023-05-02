@@ -5,6 +5,7 @@ import Grid from './basic/grid/Grid'
 import Cards from './Profiles/Cards'
 import Playing from './NowPlaying/Playing'
 import ListCard from './AllList/ListCard'
+import Cards_Uploaded from './Profiles/Cards_Uploaded'
 const MyNfts = () => {
   return (
     <section className="w-screen relative h-fit mb-10">
@@ -35,6 +36,18 @@ const MyNfts = () => {
               <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
             </Grid>
             <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text>
+            <div className='flex gap-[250px] items-center overflow-scroll'>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+              <Cards_Uploaded></Cards_Uploaded>
+            </div>
             
         </Sheet>
     </section>
