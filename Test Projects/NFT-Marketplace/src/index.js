@@ -36,9 +36,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <>
-  <Navbar></Navbar>
+  
   <Background></Background>
     <BrowserRouter>
+    <Navbar></Navbar>
       <Routes>
       <Route path="/" element={<Homepage/>}/>
         <Route path="/nftPage" element={<Marketplace />}/>

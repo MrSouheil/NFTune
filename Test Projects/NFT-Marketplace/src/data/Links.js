@@ -12,12 +12,17 @@ export const Links = [
     {
         id:2,
         title:'Explore',
-        link:''
+        link:'/Explore'
     },
     {
         id:3,
         title:'Contact us',
-        link:''
+        link:'/about-us'
     },
+    {
+        id:4,
+        title:'Upload Nft',
+        link:'/sellNFT'
+    }
     
 ]

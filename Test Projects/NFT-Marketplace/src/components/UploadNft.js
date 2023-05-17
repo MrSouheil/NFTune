@@ -2,6 +2,7 @@ import React,{ useState} from 'react'
 import Sheet from './basic/sheet/Sheet';
 import Text from './basic/text/Text';
 import Button from '../components/basic/button/Button'
+import useLogin from '../hooks/useLogin';
 
 const UploadNft = () => {
   const [state1,setState1]=useState('Choose File');
@@ -13,6 +14,7 @@ const UploadNft = () => {
       
     });
   }
+  useLogin();
   return (
     <Sheet>
     <div className='rounded-[20px] bg-[#EEEEEE66] relative mb-10'>
@@ -34,7 +36,7 @@ const UploadNft = () => {
               <div className='flex'><Button onClick={()=>{handleFile(document.getElementById('input1'),setState2)}}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state1}</Text></div>
               </div>
             </div>
-            <div className='w-full flex justify-center p +b-10'><Button padding={'py-[7px] px-20'} type={'submit'}>Save NFT</Button></div>
+            <div className='w-full flex justify-center pb-10'><Button padding={'py-[7px] px-20'} type={'submit'}>Save NFT</Button></div>
         </form>
         </div>
     </div>

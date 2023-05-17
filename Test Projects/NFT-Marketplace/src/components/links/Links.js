@@ -9,7 +9,7 @@ const Links = (props) =>{
     
     return(
         <div className="flex gap-[3.3125rem] w-fit">
-            {data.map(Link => <a style={{textDecoration:'none'}} key={Link.id} onClick={ () => {setActive(Link.id)}} href={Link.link}><Text className={`${Link.id == active ? 'border-b-4 border-[#2EE09A] text-[#2EE09A]' : 'text-white'}`} type={'button'}>{Link.title}</Text></a>)}
+            {data.map(Links => <Link style={{textDecoration:'none'}} key={Links.id} onClick={ () => {setActive(Links.id)}} to={Links.link}><Text className={`${Links.id == active ? 'border-b-4 border-[#2EE09A] text-[#2EE09A]' : 'text-white'}`} type={'button'}>{Links.title}</Text></Link>)}
         </div>
     )
 }

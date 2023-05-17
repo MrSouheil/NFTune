@@ -3,8 +3,10 @@ import Card from './basic/Cards/Card';
 import Sheet from './basic/sheet/Sheet';
 import Text from './basic/text/Text';
 import Grid from './basic/grid/Grid';
+import useLogin from '../hooks/useLogin';
 
 const Explore = () => {
+  useLogin();
   const [loadMore,setLoadMore]=useState(false);
   return (
     <section className='relative'>

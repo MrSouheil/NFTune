@@ -6,7 +6,9 @@ import Cards from './Profiles/Cards'
 import Playing from './NowPlaying/Playing'
 import ListCard from './AllList/ListCard'
 import Cards_Uploaded from './Profiles/Cards_Uploaded'
+import useLogin from '../hooks/useLogin'
 const MyNfts = () => {
+  useLogin();
   return (
     <section className="w-screen relative h-fit mb-10">
         <Sheet>

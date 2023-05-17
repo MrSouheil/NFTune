@@ -4,7 +4,7 @@ import Text from "./basic/text/Text";
 import mobile from '../assets/mobile.png'
 import metamask from '../assets/metamask.png'
 import Button from "./basic/button/Button";
-
+import { Link } from 'react-router-dom';
 
 const Homepage = () =>{
     return(
@@ -21,8 +21,8 @@ const Homepage = () =>{
                 <Text className={'mb-[10px] text-white'} type={'subTitle'}>Buy NFT songs and make it yours for eternity</Text>
                 <Text className={'max-w-[453px] mb-[30px]'} type={'text'}>A website for buying NFT songs where users can purchase unique, non-fungible tokens (NFTs) that represent ownership rights to specific songs or pieces of music.  </Text>
                 <div className="flex gap-x-[3.3125rem] items-center mb-[50px]">
-                    <Button>Explore</Button>
-                    <a style={{textDecoration:'none'}} href=''><Text className={'text-white'} type={'button'}>learn more</Text></a>
+                    <Link to='/Explore'><Button >Explore</Button></Link> 
+                    <Link className="text-decoration-none" to="/Explore"><Text className={'text-white'} type={'button'}>learn more</Text></Link>       
                 </div>
                 <div className="flex gap-[70px]">
                     <div className="flex items-center justify-center flex-col">
