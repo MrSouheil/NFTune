@@ -10,10 +10,10 @@ import {
   Route,
   Form,
 } from "react-router-dom";
-import SellNFT from './components/SellNFT';
-import Marketplace from './components/Marketplace';
-import Profile from './components/Profile';
-import NFTPage from './components/NFTpage';
+//import SellNFT from './components/SellNFT';
+//import Marketplace from './components/Marketplace';
+//import Profile from './components/Profile';
+//import NFTPage from './components/NFTpage';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage';
 import AboutUs from './components/AboutUs'
@@ -42,11 +42,9 @@ root.render(
     <Navbar></Navbar>
       <Routes>
       <Route path="/" element={<Homepage/>}/>
-        <Route path="/nftPage" element={<Marketplace />}/>
         <Route path="/about-us" element={<AboutUs />}/>
         <Route path="/sellNFT" element={<UploadNft/>}/> 
         <Route path="/Explore" element={<Explore />}/> 
-        <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
         <Route path="/profile" element={<MyNfts />}/> 
       </Routes>
     </BrowserRouter>
