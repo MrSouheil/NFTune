@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import NFTTile from "./NFTTile";
 
-export default function Profile () {
+export default function Profile() {
     const [data, updateData] = useState([]);
     const [dataFetched, updateFetched] = useState(false);
     const [address, updateAddress] = useState("0x");
@@ -29,7 +29,7 @@ export default function Profile () {
         * Below function takes the metadata from tokenURI and the data returned by getMyNFTs() contract function
         * and creates an object of information that is to be displayed
         */
-        
+
         const items = await Promise.all(transaction.map(async i => {
             const tokenURI = await contract.tokenURI(i.tokenId);
             console.log("tokenURI", tokenURI);
@@ -52,6 +52,37 @@ export default function Profile () {
             return item;
         }))
 
+        //Retrieve NFT transactions, bought and sold
+        async function getNFTTransactionEvents() {
+            const filter = contract.filters.Transfer();
+            const events = await contract.queryFilter(filter);
+
+            return events;
+        }
+
+        // Calculate the counts of NFTs bought and sold
+        async function calculateNFTCounts() {
+            const events = await getNFTTransactionEvents();
+
+            // Filter events for NFT purchases and sales
+            const nftPurchases = events.filter((event) => event.args.to === address);
+            const nftSales = events.filter((event) => event.args.from === address);
+
+            const numNFTsBought = nftPurchases.length;
+            const numNFTsSold = nftSales.length;
+
+            return { numNFTsBought, numNFTsSold };
+        }
+
+        calculateNFTCounts()
+            .then((result) => {
+                console.log('Number of NFTs bought:', result.numNFTsBought);
+                console.log('Number of NFTs sold:', result.numNFTsSold);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
         updateData(items);
         updateFetched(true);
         updateAddress(addr);
@@ -60,20 +91,20 @@ export default function Profile () {
 
     const params = useParams();
     const tokenId = params.tokenId;
-    if(!dataFetched)
+    if (!dataFetched)
         getNFTData(tokenId);
 
     return (
-        <div className="profileClass" style={{"min-height":"100vh"}}>
-            
+        <div className="profileClass" style={{ "min-height": "100vh" }}>
+
             <div className="profileClass">
-            <div className="flex text-center flex-col mt-11 md:text-2xl text-white">
-                <div className="mb-5">
-                    <h2 className="font-bold">Wallet Address</h2>  
-                    {address}
+                <div className="flex text-center flex-col mt-11 md:text-2xl text-white">
+                    <div className="mb-5">
+                        <h2 className="font-bold">Wallet Address</h2>
+                        {address}
+                    </div>
                 </div>
-            </div>
-            <div className="flex flex-row text-center justify-center mt-10 md:text-2xl text-white">
+                <div className="flex flex-row text-center justify-center mt-10 md:text-2xl text-white">
                     <div>
                         <h2 className="font-bold">No. of NFTs</h2>
                         {data.length}
@@ -82,18 +113,18 @@ export default function Profile () {
                         <h2 className="font-bold">Total Value</h2>
                         {totalPrice} ETH
                     </div>
-            </div>
-            <div className="flex flex-col text-center items-center mt-11 text-white">
-                <h2 className="font-bold">Your NFTs</h2>
-                <div className="flex justify-center flex-wrap max-w-screen-xl">
-                    {data.map((value, index) => {
-                    return <NFTTile data={value} key={index}></NFTTile>;
-                    })}
                 </div>
-                <div className="mt-10 text-xl">
-                    {data.length == 0 ? "Oops, No NFT data to display (Are you logged in?)":""}
+                <div className="flex flex-col text-center items-center mt-11 text-white">
+                    <h2 className="font-bold">Your NFTs</h2>
+                    <div className="flex justify-center flex-wrap max-w-screen-xl">
+                        {data.map((value, index) => {
+                            return <NFTTile data={value} key={index}></NFTTile>;
+                        })}
+                    </div>
+                    <div className="mt-10 text-xl">
+                        {data.length == 0 ? "Oops, No NFT data to display (Are you logged in?)" : ""}
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     )
