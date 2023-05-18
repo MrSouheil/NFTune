@@ -12,7 +12,7 @@ const UploadNft = () => {
   const [state1, setState1] = useState('Choose File');
   const [state2, setState2] = useState('Choose File');
   const [formParams, updateFormParams] = useState({ name: '', description: '', price: '' });
-  const [fileURL, setFileURL] = useState(null);
+  const [fileURL, setFileURL] = useState(1);
   const ethers = require("ethers");
   const [message, updateMessage] = useState('');
   const location = useLocation();
@@ -114,11 +114,31 @@ const UploadNft = () => {
           <form>
             <Text type={'title'} className={'w-fit mb-10 pt-10 mx-auto text-[#15265C]'}>Upload your NFT to the marketplace</Text>
             <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>NFT Name</Text>
-            <input type={'text'} className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]' placeholder='Name' onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name}></input>
+            <input
+              type={'text'}
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]'
+              placeholder='Name'
+              onChange={(e) => updateFormParams({ ...formParams, name: e.target.value })}
+              value={formParams.name}
+            />
             <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>NFT Description</Text>
-            <textarea cols='30' rows={'5'} className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px]' placeholder='Description'> onChange={e => updateFormParams({...formParams, description: e.target.value})} value={formParams.description}</textarea>
+            <textarea
+              cols='30'
+              rows={'5'}
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px]'
+              placeholder='Description'
+              onChange={(e) => updateFormParams({ ...formParams, description: e.target.value })}
+              value={formParams.description}
+            ></textarea>
             <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Price (ETH)</Text>
-            <input type={'number'} min={'0.001'} className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]' placeholder='min price 0.001 eth' onChange={e => updateFormParams({...formParams, price: e.target.value})} value={formParams.price}></input>
+            <input
+              type={'number'}
+              min={'0.001'}
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]'
+              placeholder='min price 0.001 eth'
+              onChange={(e) => updateFormParams({ ...formParams, price: e.target.value })}
+              value={formParams.price}
+            />
             <div className='flex gap-40 mb-10'>
               <div>
                 <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Image</Text>
