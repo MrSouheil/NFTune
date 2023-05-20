@@ -12,7 +12,8 @@ const UploadNft = () => {
   const [state1, setState1] = useState('Choose File');
   const [state2, setState2] = useState('Choose File');
   const [formParams, updateFormParams] = useState({ name: '', description: '', price: '' });
-  const [fileURL, setFileURL] = useState(1);
+  const [fileURL, setFileURL] = useState(null);
+  const [audioURL, setAudioURL] = useState(null);
   const ethers = require("ethers");
   const [message, updateMessage] = useState('');
   const location = useLocation();
@@ -23,6 +24,7 @@ const UploadNft = () => {
 
     });
   }
+  
   useLogin();
 
   //This function uploads the NFT image to IPFS, our decentralized online database
@@ -44,8 +46,19 @@ const UploadNft = () => {
 
   //This function uploads the NFT audio to database
   async function OnChangeMusicFile(e) {
+    var file = e.target.files[0];
     //check for file extension
-    //try catch upload file to db
+    try {
+      //upload the audio file to IPFS, only the audio
+      const response = await uploadFileToIPFS(file);
+      if (response.success === true) {
+        console.log("Uploaded audio to Pinata: ", response.pinataURL)
+        setAudioURL(response.pinataURL);                               //Sets the 'AudioURL' for later retrieval
+      }
+    }
+    catch (e) {
+      console.log("Error during file upload", e);
+    }
   }
 
   //This function uploads the metadata to IPFS, and then links them to the image uploaded
