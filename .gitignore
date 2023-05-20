@@ -1,3 +1,6 @@
 node_modules/
 artifacts/
 cache/
+Test Projects/NFT-Marketplace/src/Marketplace.json
+Test Projects/NFT-Marketplace/src/pinata.js
+Test Projects/NFT-Marketplace/hardhat.config.js

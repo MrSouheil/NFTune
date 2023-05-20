@@ -39,6 +39,7 @@ const Explore = () => {
         seller: i.seller,
         owner: i.owner,
         image: meta.image,
+        audio: meta.audio,
         name: meta.name,
         description: meta.description,
       }

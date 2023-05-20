@@ -17,13 +17,12 @@ const UploadNft = () => {
   const ethers = require("ethers");
   const [message, updateMessage] = useState('');
   const location = useLocation();
-  const handleFile = (file, setState) => {
-    file.click();
-    file.addEventListener('change', function () {
-      file.files.length > 0 ? setState(file.files[0].name) : setState('Choose File')
-
-    });
-  }
+  // const handleFile = (file, setState) => {
+  //   file.click();
+  //   file.addEventListener('change', function () {
+  //     file.files.length > 0 ? setState(file.files[0].name) : setState('Choose File')
+  //   });
+  // }
   
   useLogin();
 
@@ -65,11 +64,11 @@ const UploadNft = () => {
   async function uploadMetadataToIPFS() {
     const { name, description, price } = formParams;
     //Make sure that none of the fields are empty
-    if (!name || !description || !price || !fileURL)
+    if (!name || !description || !price || !fileURL || !audioURL)
       return;
 
     const nftJSON = {
-      name, description, price, image: fileURL            //Links the metadata to the image
+      name, description, price, image: fileURL, audio: audioURL            //Links the metadata to the image
     }
 
     //Now we upload the JSON data of the image and metadata to keep them saved in 2 places
@@ -155,10 +154,12 @@ const UploadNft = () => {
             <div className='flex gap-40 mb-10'>
               <div>
                 <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Image</Text>
-                <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input'), setState1) }} onChange={OnChangeFile}>Choose File</Button><input type={'file'} id={'input'} className='hidden'></input><Text type={'text'}>{state1}</Text></div>
+                {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input'), setState1) }} onChange={OnChangeFile}>Choose File</Button><input type={'file'} id={'input'} className='hidden'></input><Text type={'text'}>{state1}</Text></div> */}
+                <input type={"file"} accept="video/*|image/*" onChange={OnChangeFile}></input>
               </div>
               <div><Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Audio</Text>
-                <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input1'), setState2) }} onChange={OnChangeMusicFile}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state2}</Text></div>
+                {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input1'), setState2) }} onChange={OnChangeMusicFile}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state2}</Text></div> */}
+                <input type={"file"} accept="audio/*" onChange={OnChangeMusicFile}></input>
               </div>
             </div>
             <div className='w-full flex justify-center pb-10'><Button padding={'py-[7px] px-20'} type={'submit'} onClick={listNFT}>Save NFT</Button></div>
