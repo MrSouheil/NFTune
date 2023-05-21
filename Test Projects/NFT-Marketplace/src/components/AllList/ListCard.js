@@ -10,9 +10,8 @@ const ListCard = (data) => {
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
         </div>
-        <div className='rounded-[10px] bg-[#D9D9D9] aspect-square border-hidden '>
-            <img className='w-full h-full rounded-[10px] max-w-[70px] object-cover' src={data.data.image}></img>
-        </div>
+        <div className='rounded-[10px] w-[80px] bg-[#D9D9D9] aspect-square border-hidden '>
+            <img className='w-full h-full rounded-[10px] object-cover' src={data.data.image}></img>
         <div>
             <Text type='text' className='text-white w-max'><strong>Nft Name:</strong> {data.data.name?data.data.name:'unknown'}</Text>
             <Text type='text' className='text-white w-max'><strong>Artist:</strong> {data.data.description?data.data.description:'unknown'}</Text>
