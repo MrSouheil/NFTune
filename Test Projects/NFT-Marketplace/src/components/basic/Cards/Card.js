@@ -27,7 +27,12 @@ const Card = (props) => {
             
         }
         catch(e) {
-            alert("Upload Error"+e)
+            if (e.message.includes("ERC721")) {
+                alert("You are the owner of this NFT.");
+              } else {
+                // Handle other errors
+                alert("An error occurred during the NFT purchase.");
+              }
         }
     }
   return (
