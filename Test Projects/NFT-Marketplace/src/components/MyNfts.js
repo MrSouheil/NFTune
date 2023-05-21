@@ -137,8 +137,8 @@ const MyNfts = () => {
           <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
           <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
         </Grid>
-        <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text>
-        <div className='flex gap-[250px] items-center overflow-scroll'>
+        {/* <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text> */}
+        {/* <div className='flex gap-[250px] items-center overflow-scroll'>
           <Cards_Uploaded></Cards_Uploaded>
           <Cards_Uploaded></Cards_Uploaded>
           <Cards_Uploaded></Cards_Uploaded>
@@ -149,7 +149,7 @@ const MyNfts = () => {
           <Cards_Uploaded></Cards_Uploaded>
           <Cards_Uploaded></Cards_Uploaded>
           <Cards_Uploaded></Cards_Uploaded>
-        </div>
+        </div> */}
 
       </Sheet>
     </section>
