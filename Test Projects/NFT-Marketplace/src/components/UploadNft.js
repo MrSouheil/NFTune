@@ -45,28 +45,11 @@ const UploadNft = () => {
   }
 
   //This function uploads the NFT audio to database
-  async function OnChangeMusicFile() {
-    var e = document.querySelector('.Audio');
+  async function OnChangeMusicFile(e) {
     var file = e.target.files[0];
-    //check for file extension
+    // Check for file extension
+  
     try {
-      //upload the audio file to IPFS, only the audio
-      const response = await uploadFileToIPFS(file);
-      if (response.success === true) {
-        console.log("Uploaded audio to Pinata: ", response.pinataURL)
-        setAudioURL(response.pinataURL);                               //Sets the 'AudioURL' for later retrieval
-      }
-    }
-    catch (e) {
-      console.log("Error during audio upload", e);
-    }
-  }
-
-  //This function updates the audio duration
-  async function updateAudioDuration() {
-    var fileInput = document.querySelector('.Audio'); // or document.getElementById('inputId');
-    var file = fileInput.files[0];
-    if (file) {
       const audio = new Audio();
       audio.addEventListener('loadedmetadata', function() {
         const audioDuration = audio.duration;
@@ -74,34 +57,44 @@ const UploadNft = () => {
       });
       audio.src = URL.createObjectURL(file);
       audio.load();
+  
+      // Upload the audio file to IPFS
+      const response = await uploadFileToIPFS(file);
+      if (response.success === true) {
+        console.log("Uploaded audio to Pinata: ", response.pinataURL)
+        setAudioURL(response.pinataURL);
+      }
+    } catch (e) {
+      console.log("Error during audio upload", e);
     }
   }
   
-
-  //This function uploads the metadata to IPFS, and then links them to the image uploaded
   async function uploadMetadataToIPFS() {
     const { name, description, price } = formParams;
-    //Make sure that none of the fields are empty
-    if (!name || !description || !price || !fileURL || !audioURL || !audioDuration)
+    if (!name || !description || !price || !fileURL || !audioURL || !audioDuration) {
       return;
-
-    const nftJSON = {
-      name, description, price, image: fileURL, audio: audioURL, duration: audioDuration            //Links the metadata to the image
     }
-
-    //Now we upload the JSON data of the image and metadata to keep them saved in 2 places
+  
+    const nftJSON = {
+      name,
+      description,
+      price,
+      image: fileURL,
+      audio: audioURL,
+      duration: audioDuration
+    };
+  
     try {
-      //upload the metadata JSON to IPFS
       const response = await uploadJSONToIPFS(nftJSON);
       if (response.success === true) {
-        console.log("Uploaded JSON to Pinata: ", response)
+        console.log("Uploaded JSON to Pinata: ", response);
         return response.pinataURL;
       }
-    }
-    catch (e) {
-      console.log("error uploading JSON metadata:", e)
+    } catch (e) {
+      console.log("Error uploading JSON metadata:", e);
     }
   }
+  
 
   //This function lists the NFT on the blockchain, handles payments and upload
   async function listNFT(e) {
@@ -177,7 +170,7 @@ const UploadNft = () => {
               </div>
               <div><Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Audio</Text>
                 {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input1'), setState2) }} onChange={OnChangeMusicFile}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state2}</Text></div> */}
-                <input className='Audio' type={"file"} accept="audio/*" onChange={()=>{OnChangeMusicFile(); updateAudioDuration()}}></input>
+                <input type={"file"} accept="audio/*" onChange={OnChangeMusicFile}></input>
               </div>
             </div>
             <div className='w-full flex justify-center pb-10'><Button padding={'py-[7px] px-20'} type={'submit'} onClick={listNFT}>Save NFT</Button></div>
