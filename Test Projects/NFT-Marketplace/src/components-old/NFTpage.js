@@ -42,7 +42,6 @@ async function getNFTData(tokenId) {
     console.log("address", addr)
     updateCurrAddress(addr);
 }
-
 async function buyNFT(tokenId) {
     try {
         const ethers = require("ethers");
@@ -65,6 +64,7 @@ async function buyNFT(tokenId) {
         alert("Upload Error"+e)
     }
 }
+
 
     const params = useParams();
     const tokenId = params.tokenId;
