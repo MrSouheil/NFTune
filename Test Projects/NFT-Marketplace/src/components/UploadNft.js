@@ -14,6 +14,7 @@ const UploadNft = () => {
   const [formParams, updateFormParams] = useState({ name: '', description: '', price: '' });
   const [fileURL, setFileURL] = useState(null);
   const [audioURL, setAudioURL] = useState(null);
+  const [audioDuration, setAudioDuration] = useState(null);
   const ethers = require("ethers");
   const [message, updateMessage] = useState('');
   const location = useLocation();
@@ -44,7 +45,8 @@ const UploadNft = () => {
   }
 
   //This function uploads the NFT audio to database
-  async function OnChangeMusicFile(e) {
+  async function OnChangeMusicFile() {
+    var e = document.querySelector('.Audio');
     var file = e.target.files[0];
     //check for file extension
     try {
@@ -56,19 +58,35 @@ const UploadNft = () => {
       }
     }
     catch (e) {
-      console.log("Error during file upload", e);
+      console.log("Error during audio upload", e);
     }
   }
+
+  //This function updates the audio duration
+  async function updateAudioDuration() {
+    var fileInput = document.querySelector('.Audio'); // or document.getElementById('inputId');
+    var file = fileInput.files[0];
+    if (file) {
+      const audio = new Audio();
+      audio.addEventListener('loadedmetadata', function() {
+        const audioDuration = audio.duration;
+        setAudioDuration(audioDuration);
+      });
+      audio.src = URL.createObjectURL(file);
+      audio.load();
+    }
+  }
+  
 
   //This function uploads the metadata to IPFS, and then links them to the image uploaded
   async function uploadMetadataToIPFS() {
     const { name, description, price } = formParams;
     //Make sure that none of the fields are empty
-    if (!name || !description || !price || !fileURL || !audioURL)
+    if (!name || !description || !price || !fileURL || !audioURL || !audioDuration)
       return;
 
     const nftJSON = {
-      name, description, price, image: fileURL, audio: audioURL            //Links the metadata to the image
+      name, description, price, image: fileURL, audio: audioURL, duration: audioDuration            //Links the metadata to the image
     }
 
     //Now we upload the JSON data of the image and metadata to keep them saved in 2 places
@@ -159,7 +177,7 @@ const UploadNft = () => {
               </div>
               <div><Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Audio</Text>
                 {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input1'), setState2) }} onChange={OnChangeMusicFile}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state2}</Text></div> */}
-                <input type={"file"} accept="audio/*" onChange={OnChangeMusicFile}></input>
+                <input className='Audio' type={"file"} accept="audio/*" onChange={()=>{OnChangeMusicFile(); updateAudioDuration()}}></input>
               </div>
             </div>
             <div className='w-full flex justify-center pb-10'><Button padding={'py-[7px] px-20'} type={'submit'} onClick={listNFT}>Save NFT</Button></div>

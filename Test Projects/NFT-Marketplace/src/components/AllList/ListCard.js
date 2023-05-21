@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from '../basic/text/Text';
 
-const ListCard = (props) => {
+const ListCard = (data) => {
   return (
     <div className='flex gap-[20px] w-max'>
         <div className='flex flex-col gap-[5px] items-center justify-center h-[full]'>
@@ -11,12 +11,12 @@ const ListCard = (props) => {
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
         </div>
         <div className='rounded-[10px] bg-[#D9D9D9] aspect-square border-hidden '>
-            <img className='w-full h-full rounded-[10px]' ></img>
+            <img className='w-full h-full rounded-[10px] max-w-[70px] object-cover' src={data.data.image}></img>
         </div>
         <div>
-            <Text type='text' className='text-white w-max'><strong>Nft Name:</strong> {props.NFT?props.NFT:'unknown'}</Text>
-            <Text type='text' className='text-white w-max'><strong>Artist:</strong> {props.Artist?props.Artist:'unknown'}</Text>
-            <Text type='text' className='text-white w-max'><strong>Duration:</strong> {props.Duration?props.Duration:'unknown'}</Text>
+            <Text type='text' className='text-white w-max'><strong>Nft Name:</strong> {data.data.name?data.data.name:'unknown'}</Text>
+            <Text type='text' className='text-white w-max'><strong>Artist:</strong> {data.data.description?data.data.description:'unknown'}</Text>
+            <Text type='text' className='text-white w-max'><strong>Duration:</strong> {data.data.duration?data.data.duration:'0:00'}</Text>
         </div>
     </div>
   )

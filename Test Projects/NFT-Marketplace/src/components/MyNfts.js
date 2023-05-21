@@ -8,6 +8,8 @@ import ListCard from './AllList/ListCard'
 import Cards_Uploaded from './Profiles/Cards_Uploaded'
 import useLogin from '../hooks/useLogin'
 
+import NFTTile from '../components-old/NFTTile'
+
 import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
@@ -124,19 +126,11 @@ const MyNfts = () => {
         <Playing></Playing>
         <Text type={'subTitle'} className={'text-white mb-5'} View All List></Text>
         <Grid className='gap-y-[20px] mb-[20px]' lg={'3'} md='2' def='1'>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
-          <ListCard NFT='Escapism' Artist='Unknown' Duration='2:00'></ListCard>
+          {data.map((value, index) => {
+            return <ListCard data={value} key={index}></ListCard>;
+          })}
         </Grid>
+        
         {/* <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text> */}
         {/* <div className='flex gap-[250px] items-center overflow-scroll'>
           <Cards_Uploaded></Cards_Uploaded>
