@@ -20,7 +20,7 @@ const Card = (props) => {
                 <div className='flex justify-between h-full items-center'>
                     <div>
                         <Text type={'text'}>NFT: {NftName}</Text>
-                        <Text type={'text'}>Artist: {Artist}</Text>
+                        <Text type={'text'}>Description: {Artist}</Text>
                         <Text type={'text'}>Duration: {Duration}</Text>
                     </div>
                     <div className='flex flex-col gap-[1rem]'>
