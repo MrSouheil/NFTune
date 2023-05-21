@@ -62,6 +62,7 @@ const MyNfts = () => {
         image: meta.image,
         name: meta.name,
         description: meta.description,
+        duration: meta.duration,
       }
       sumPrice += Number(price);
       return item;
