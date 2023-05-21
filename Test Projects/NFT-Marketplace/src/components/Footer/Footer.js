@@ -9,6 +9,7 @@ const Footer = () => {
         <Contact className={'mb-10'}></Contact>
         <GetInTouch className={'mb-10'}></GetInTouch>
         <Copyrights></Copyrights>
+        
     </footer>
   )
 }

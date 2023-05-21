@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Sheet from './basic/sheet/Sheet';
 import Text from './basic/text/Text';
 import Button from '../components/basic/button/Button'
@@ -7,8 +7,14 @@ import useLogin from '../hooks/useLogin';
 import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Marketplace from '../Marketplace.json';
 import { useLocation } from "react-router";
-
+import WOW from 'wowjs';
+import 'wowjs/css/libs/animate.css';
+   
 const UploadNft = () => {
+  useEffect(() => {
+    const wow = new WOW.WOW();
+    wow.init();
+  }, []);
   const [state1, setState1] = useState('Choose File');
   const [state2, setState2] = useState('Choose File');
   const [formParams, updateFormParams] = useState({ name: '', description: '', price: '' });
@@ -132,7 +138,7 @@ const UploadNft = () => {
 
   return (
     <Sheet>
-      <div className='rounded-[20px] bg-[#EEEEEE66] relative mb-10'>
+      <div className='rounded-[20px] bg-[#EEEEEE66] relative mb-10 wow bounceIn'>
         <div className='w-[90%] mx-auto'>
           <form>
             <Text type={'title'} className={'w-fit mb-10 pt-10 mx-auto text-[#15265C]'}>Upload your NFT to the marketplace</Text>

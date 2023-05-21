@@ -1,9 +1,16 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Sheet from '../basic/sheet/Sheet';
 import { Button } from 'react-bootstrap';
 import Text from '../basic/text/Text';
+import WOW from 'wowjs';
+import 'wowjs/css/libs/animate.css';
 
+  
 const Contact = (props) => {
+  useEffect(() => {
+    const wow = new WOW.WOW();
+    wow.init();
+  }, []);
   const emailjs = require('emailjs-com');
 
   const sendEmail = () => {
@@ -28,7 +35,7 @@ const Contact = (props) => {
 
   return (
     <Sheet className={`${props.className ? props.className : ''}`}>
-      <div className='w-full bg-[#EEEEEE66] rounded-[20px] py-10'>
+      <div className='w-full bg-[#EEEEEE66] rounded-[20px] py-10 wow fadeInUp' data-wow-offset='400'>
         <Text className='mx-auto w-fit text-[#15265C]' type={'title'}>
           Never Miss A Drop!
         </Text>

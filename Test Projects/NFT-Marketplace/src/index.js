@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -23,6 +23,7 @@ import Footer from './components/Footer/Footer';
 import Background from './components/background/Background';
 import UploadNft from './components/UploadNft';
 import MyNfts from './components/MyNfts';
+
 
 
 if (typeof web3 !== 'undefined') {
@@ -51,6 +52,7 @@ root.render(
     <Footer></Footer>
     </>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
