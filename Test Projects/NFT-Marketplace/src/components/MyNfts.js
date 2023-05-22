@@ -103,10 +103,17 @@ const MyNfts = () => {
 
   const params = useParams();
   const tokenId = params.tokenId;
+  const [active,setActive]=useState(0);
+  const [datas,setData]=useState({image:'',description:'',audio:'',name:''});
   //If fetching wasn't successfull, retry
   if (!dataFetched)
     getNFTData(tokenId);
 
+  
+    const saveData=(Data)=>{
+      setData(Data)
+      
+    }
   return (
     <section className="w-screen relative h-fit mb-10">
       <Sheet>
@@ -119,11 +126,11 @@ const MyNfts = () => {
         </Grid>
         <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>My playlist</Text>
         <Text type={'subTitle'} className={'text-white mb-[20px]'}>Now Playing</Text>
-        <Playing></Playing>
+        <Playing data={datas}></Playing>
         <Text type={'subTitle'} className={'text-white mb-5'} View All List></Text>
-        <Grid className='gap-y-[20px] mb-[20px]' lg={'3'} md='2' def='1'>
+        <Grid className='gap-y-[20px] gap-x-[20px] mb-[20px]' lg={'3'} md='2' def='1'>
           {data.map((value, index) => {
-            return <ListCard data={value} key={index}></ListCard>;
+            return <ListCard onDataChanged={saveData} active={index===active?'true':''} className={`${active}`} onClick={()=>{setActive(index);}} data={value} key={index}></ListCard>;
           })}
         </Grid>
 

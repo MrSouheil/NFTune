@@ -1,7 +1,13 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Text from '../basic/text/Text';
 
 const ListCard = (data) => {
+  useEffect(()=>{
+    if(data.active){
+      data.onDataChanged({audio:data.data.audio,image:data.data.image,name:data.data.name,description:data.data.description,duration:data.data.duration});
+    }
+  },[data.active])
+  
   function formatDuration(duration) {
     if (!duration) {
       return '0:00';
@@ -12,9 +18,11 @@ const ListCard = (data) => {
     const formattedDuration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     return formattedDuration;
   }  
+  
   return (
-    <div className='flex gap-[20px] w-max'>
-        <div className='flex flex-col gap-[5px] items-center justify-center h-[full]'>
+    
+    <div onClick={data.onClick} className={`flex gap-[20px]  hover:bg-[#ffffff7d] ${data.active?'bg-[#ffffff9d]':''} rounded-[20px] w-full py-[13px]  w-full px-[16px] transition-all ease-in ${data.className}`}>
+        <div className='flex flex-col gap-[5px] items-center justify-center h-[full]  '>
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
