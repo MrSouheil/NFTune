@@ -30,8 +30,13 @@ const Card = (props) => {
             if (e.message.includes("ERC721")) {
                 alert("You are the owner of this NFT.");
               } else {
-                // Handle other errors
-                alert("An error occurred during the NFT purchase.");
+                if (e.message.includes("denied")) {
+                    alert("NFT purchase cancelled.")
+                }
+                else {
+                    // Handle other errors
+                    alert("An error occurred during the NFT purchase.");
+                }
               }
         }
     }

@@ -5,11 +5,7 @@ import Grid from './basic/grid/Grid'
 import Cards from './Profiles/Cards'
 import Playing from './NowPlaying/Playing'
 import ListCard from './AllList/ListCard'
-import Cards_Uploaded from './Profiles/Cards_Uploaded'
 import useLogin from '../hooks/useLogin'
-
-import NFTTile from '../components-old/NFTTile'
-
 import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
@@ -72,24 +68,23 @@ const MyNfts = () => {
     async function getNFTTransactionEvents() {
       const filter = contract.filters.Transfer();
       const events = await contract.queryFilter(filter);
-    
+
       return events;
     }
-    
+
     // Calculate the counts of NFTs bought and sold
     async function calculateNFTCounts() {
       const events = await getNFTTransactionEvents();
-    
+
       // Filter events for NFT purchases and sales
       const nftPurchases = events.filter((event) => event.args.to === address);
       const nftSales = events.filter((event) => event.args.from === address);
-    
+
       const numNFTsBought = nftPurchases.length;
-      const numNFTsSold = nftSales.length;
-    
-      return { numNFTsBought, numNFTsSold };
+
+      return numNFTsBought;
     }
-    
+
     //Logging the NFTs bought and sold still in development
     calculateNFTCounts()
       .then((result) => {
@@ -118,8 +113,8 @@ const MyNfts = () => {
         <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>Welcome to your profile!</Text>
         <Grid className={'gap-[20px] mb-[20px]'} lg='3' md='2' def='1'>
           <Cards title='Wallet Address'><Text type={'text'} className='text-white'>{address}</Text></Cards>
-          <Cards title='Number Of NFTS'><div className='flex gap-5'><div className='fle jusx gap-[20px] items-centertify-center'><svg xmlns="http://www.w3.org/2000/svg" style={{ fill: 'white' }} className='w-[24px]' viewBox="0 0 512 512"><path d="M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" /></svg><Text type={'text'} className='text-white'>{data.length}</Text></div>      <div className='flex gap-[20px] items-center justify-center'><svg className='w-[24px]' style={{ fill: 'white' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" /></svg><Text type={'text'} className='text-white'>{data.length}</Text></div></div></Cards>
-          <Cards title='Total Value'><div className='flex gap-5'><div className='flex gap-[20px] items-center justify-center'><svg className='w-[24px]' style={{ fill: 'green' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" /></svg><Text type={'text'} className='text-white'>{totalPrice} ETH</Text></div>      <div className='flex gap-[20px] items-center justify-center'><svg className='w-[24px]' style={{ fill: 'red' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" /></svg><Text type={'text'} className='text-white'>{totalPrice} ETH</Text></div></div></Cards>
+          <Cards title='Number Of NFTS'><div className='flex gap-[20px] items-center'><svg className='w-[24px]' style={{ fill: 'white' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" /></svg><Text type={'text'} className='text-white'>{data.length}</Text></div></Cards>
+          <Cards title='Total Value'><div className='flex gap-5'><div className='flex gap-[20px] items-center justify-center'><svg className='w-[24px]' style={{ fill: 'green' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" /></svg><Text type={'text'} className='text-white'>{totalPrice} ETH</Text></div></div></Cards>
           <Cards title='Total Balance'><Text type={'text'} className={'text-white'}>{totalPrice} ETH </Text></Cards>
         </Grid>
         <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>My playlist</Text>
@@ -131,7 +126,7 @@ const MyNfts = () => {
             return <ListCard data={value} key={index}></ListCard>;
           })}
         </Grid>
-        
+
         {/* <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text> */}
         {/* <div className='flex gap-[250px] items-center overflow-scroll'>
           <Cards_Uploaded></Cards_Uploaded>
