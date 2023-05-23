@@ -44,6 +44,7 @@ const Explore = () => {
         audio: meta.audio,
         name: meta.name,
         description: meta.description,
+        duration: meta.duration,
       }
 
       return item;
@@ -74,7 +75,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
-        Duration={item.Duartion}
+        Duration={item.duration}
         disabled={index % 2 === 0 ? 'true' : ''}
         className={index % 2 === 0 ? 'w-[373px] h-[434px] place-self-center' : 'h-[556px] w-[100%] place-self-center'}
       ></Card>
@@ -95,7 +96,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
-        Duartion={item.Duartion}
+        Duration={item.duration}
       ></Card>
     );
   })}
@@ -111,7 +112,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
-        Duartion={item.Duartion}
+        Duration={item.duration}
       ></Card>
     );
   })}

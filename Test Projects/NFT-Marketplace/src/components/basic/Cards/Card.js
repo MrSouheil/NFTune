@@ -66,9 +66,9 @@ const Card = (props) => {
                     </div>
                     <div className='flex justify-between h-full items-center'>
                         <div>
-                            <Text type={'text'}>NFT: {NftName}</Text>
-                            <Text type={'text'}>Description: {Artist}</Text>
-                            <Text type={'text'}>Duration: {formatDuration(Duration ? Duration : '0:00')}</Text>
+                            <Text type={'text'} className='text-black'>NFT: {NftName}</Text>
+                            <Text type={'text'} className='text-black'>Description: {Artist}</Text>
+                            <Text type={'text'} className='text-black'>Duration: {formatDuration(Duration ? Duration : '0:00')}</Text>
                         </div>
                         <div className='flex flex-col gap-[1rem]'>
                             <Button onClick={() => { buyNFT(props.tokenId) }} bgColor={`${disabled ? '#ACACAC' : '#2EE09A'}`}>Buy Now</Button>
