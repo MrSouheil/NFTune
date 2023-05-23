@@ -4,6 +4,7 @@ import Text from '../basic/text/Text';
 const ListCard = (data) => {
   useEffect(()=>{
     if(data.active){
+      console.log(data.data)
       data.onDataChanged({audio:data.data.audio,image:data.data.image,name:data.data.name,description:data.data.description,duration:data.data.duration});
     }
   },[data.active])

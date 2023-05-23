@@ -10,6 +10,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
+import useMusic from '../hooks/useMusic';
 
 const MyNfts = () => {
   useLogin();
@@ -55,6 +56,7 @@ const MyNfts = () => {
         tokenId: i.tokenId.toNumber(),        //Unique
         seller: i.seller,
         owner: i.owner,
+        audio:meta.audio,
         image: meta.image,
         name: meta.name,
         description: meta.description,
@@ -105,18 +107,46 @@ const MyNfts = () => {
   const tokenId = params.tokenId;
   const [active,setActive]=useState(0);
   const [datas,setData]=useState({image:'',description:'',audio:'',name:''});
+  //useMusic(document.querySelector('.audio-element'),datas.audio);
   //If fetching wasn't successfull, retry
   if (!dataFetched)
     getNFTData(tokenId);
 
   
     const saveData=(Data)=>{
-      setData(Data)
+      setData(Data);
+      console.log(Data.audio);
+      useMusic(document.querySelector('.audio-element'),Data.audio);
+      
+      document.querySelector('.audio-element').play();
       
     }
+    function handleNext(){
+      if(active===data.length-1){
+        setActive(0);
+      }else{
+        setActive(active+1);
+      }
+      
+    }
+    function handlePause(){
+      if(document.querySelector('.audio-element').paused){
+        document.querySelector('.audio-element').play();
+      }else{ document.querySelector('.audio-element').pause();}
+     
+    }
+    function handleprev(){
+      if(active!==0){
+        setActive(active-1)
+      }else{
+        setActive(data.length-1)
+      };
+    }
+  
   return (
     <section className="w-screen relative h-fit mb-10">
       <Sheet>
+      <audio class="audio-element" src={"file:///C:/Users/user/Downloads/QmYctLwUMDdnxUAWkdnqKuTtdQ47Kk8n13VbFSXY51XD6y.mp3"}></audio>
         <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>Welcome to your profile!</Text>
         <Grid className={'gap-[20px] mb-[20px]'} lg='3' md='2' def='1'>
           <Cards title='Wallet Address'><Text type={'text'} className='text-white'>{address}</Text></Cards>
@@ -126,7 +156,7 @@ const MyNfts = () => {
         </Grid>
         <Text type={'title'} className={'text-white mx-auto w-fit mb-[20px]'}>My playlist</Text>
         <Text type={'subTitle'} className={'text-white mb-[20px]'}>Now Playing</Text>
-        <Playing data={datas}></Playing>
+        <Playing onPause={handlePause} onNext={handleNext} onPrev={handleprev} data={datas}></Playing>
         <Text type={'subTitle'} className={'text-white mb-5'} View All List></Text>
         <Grid className='gap-y-[20px] gap-x-[20px] mb-[20px]' lg={'3'} md='2' def='1'>
           {data.map((value, index) => {
