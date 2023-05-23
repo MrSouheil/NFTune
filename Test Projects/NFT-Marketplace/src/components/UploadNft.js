@@ -36,7 +36,6 @@ const UploadNft = () => {
   //This function uploads the NFT image to IPFS, our decentralized online database
   async function OnChangeFile(e) {
     var file = e.target.files[0];
-    //check for file extension
     try {
       //upload the image file to IPFS, only the image
       const response = await uploadFileToIPFS(file);
@@ -53,8 +52,6 @@ const UploadNft = () => {
   //This function uploads the NFT audio to database
   async function OnChangeMusicFile(e) {
     var file = e.target.files[0];
-    // Check for file extension
-  
     try {
       const audio = new Audio();
       audio.addEventListener('loadedmetadata', function() {
@@ -145,7 +142,7 @@ const UploadNft = () => {
             <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>NFT Name</Text>
             <input
               type={'text'}
-              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]'
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-black w-full pl-[15px] mb-[20px] py-[10px]'
               placeholder='Name'
               onChange={(e) => updateFormParams({ ...formParams, name: e.target.value })}
               value={formParams.name}
@@ -154,7 +151,7 @@ const UploadNft = () => {
             <textarea
               cols='30'
               rows={'5'}
-              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px]'
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-black w-full pl-[15px] mb-[20px]'
               placeholder='Description'
               onChange={(e) => updateFormParams({ ...formParams, description: e.target.value })}
               value={formParams.description}
@@ -163,7 +160,7 @@ const UploadNft = () => {
             <input
               type={'number'}
               min={'0.001'}
-              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-white w-full pl-[15px] mb-[20px] py-[10px]'
+              className='bg-[#D9D9D9] opacity-30 rounded-[18px] text-black w-full pl-[15px] mb-[20px] py-[10px]'
               placeholder='min price 0.001 eth'
               onChange={(e) => updateFormParams({ ...formParams, price: e.target.value })}
               value={formParams.price}
@@ -172,7 +169,7 @@ const UploadNft = () => {
               <div>
                 <Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Image</Text>
                 {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input'), setState1) }} onChange={OnChangeFile}>Choose File</Button><input type={'file'} id={'input'} className='hidden'></input><Text type={'text'}>{state1}</Text></div> */}
-                <input type={"file"} accept="video/*|image/*" onChange={OnChangeFile}></input>
+                <input type={"file"} accept="image/*,.mp4,.mov,.gif" onChange={OnChangeFile}></input>
               </div>
               <div><Text type={'subtitle'} className={'text-[#15265C] pb-[10px]'}>Upload Audio</Text>
                 {/* <div className='flex'><Button onClick={() => { handleFile(document.getElementById('input1'), setState2) }} onChange={OnChangeMusicFile}>Choose File</Button><input type={'file'} id={'input1'} className='hidden'></input><Text type={'text'}>{state2}</Text></div> */}

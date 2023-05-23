@@ -133,21 +133,6 @@ const MyNfts = () => {
             return <ListCard onDataChanged={saveData} active={index===active?'true':''} className={`${active}`} onClick={()=>{setActive(index);}} data={value} key={index}></ListCard>;
           })}
         </Grid>
-
-        {/* <Text className='text-white mb-[20px]' type='subTitle'>Uploaded NFTs</Text> */}
-        {/* <div className='flex gap-[250px] items-center overflow-scroll'>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-          <Cards_Uploaded></Cards_Uploaded>
-        </div> */}
-
       </Sheet>
     </section>
   )

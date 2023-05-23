@@ -39,7 +39,7 @@ export const uploadFileToIPFS = async(file) => {
     data.append('file', file);
 
     const metadata = JSON.stringify({
-        name: 'NFTData',
+        name: 'Asset',
         keyvalues: {
             exampleKey: 'exampleValue'
         }

@@ -29,7 +29,7 @@ const ListCard = (data) => {
             <div className='w-[25px] h-[1px] border border-solid border-white'></div>
         </div>
         <div className='rounded-[10px] w-[80px] bg-[#D9D9D9] aspect-square border-hidden '>
-            <img className='w-full h-full rounded-[10px] object-cover' src={data.data.image}></img>
+            <img className='w-full h-full rounded-[10px] object-cover' src={data.data.image?data.data.image:'https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0'}></img>
         </div>
         <div>
             <Text type='text' className='text-white w-max'><strong>Nft Name:</strong> {data.data.name?data.data.name:'unknown'}</Text>

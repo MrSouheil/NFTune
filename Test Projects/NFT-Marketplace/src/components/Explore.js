@@ -9,11 +9,6 @@ import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 
 const Explore = () => {
-
-
-  
-
-
   const [data, updateData] = useState(null);
   const [dataFetched, updateFetched] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
@@ -79,6 +74,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
+        Duration={item.Duartion}
         disabled={index % 2 === 0 ? 'true' : ''}
         className={index % 2 === 0 ? 'w-[373px] h-[434px] place-self-center' : 'h-[556px] w-[100%] place-self-center'}
       ></Card>
@@ -99,6 +95,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
+        Duartion={item.Duartion}
       ></Card>
     );
   })}
@@ -114,6 +111,7 @@ const Explore = () => {
         price={item.price}
         Artist={item.description}
         NftName={item.name}
+        Duartion={item.Duartion}
       ></Card>
     );
   })}
