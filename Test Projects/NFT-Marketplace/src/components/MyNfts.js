@@ -10,7 +10,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
-import useMusic from '../hooks/useMusic';
+import UseMusic from '../hooks/useMusic';
 
 const MyNfts = () => {
   useLogin();
@@ -107,7 +107,7 @@ const MyNfts = () => {
   const tokenId = params.tokenId;
   const [active,setActive]=useState(0);
   const [datas,setData]=useState({image:'',description:'',audio:'',name:''});
-  //useMusic(document.querySelector('.audio-element'),datas.audio);
+  //UseMusic(document.querySelector('.audio-element'),datas.audio);
   //If fetching wasn't successfull, retry
   if (!dataFetched)
     getNFTData(tokenId);
@@ -116,7 +116,7 @@ const MyNfts = () => {
     const saveData=(Data)=>{
       setData(Data);
       console.log(Data.audio);
-      useMusic(document.querySelector('.audio-element'),Data.audio);
+      UseMusic(document.querySelector('.audio-element'),Data.audio);
       
       document.querySelector('.audio-element').play();
       
