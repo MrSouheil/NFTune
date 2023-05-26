@@ -17,7 +17,7 @@ export const Links = [
     {
         id:3,
         title:'Contact us',
-        link:'/about-us'
+        link:'/Contact'
     },
     {
         id:4,

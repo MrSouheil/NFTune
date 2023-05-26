@@ -88,7 +88,7 @@ const Explore = () => {
         <div className='relative rounded-[20px] w-[300px] mx-auto mb-20'><input className='w-full h-full rounded-[20px] bg-[#EEEEEE66] py-[10px] pl-[36px]' placeholder='Search'></input></div>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 relative mb-20'>
         {loading&&!data? <img className='col-span-3 max-w-[263px] mx-auto'  src={'loader.gif'} alt='image loader'/> :''}
-        {data&&data.slice(3, 10).map((item, index) => {
+        {data&&data.slice(3, 9).map((item, index) => {
     return (
       <Card
       
@@ -105,7 +105,7 @@ const Explore = () => {
             <Text type='text' >Load More</Text>
           </div> :
             <>
-               {data&&data.slice(10, 17).map((item, index) => {
+               {data&&data.slice(9, 17).map((item, index) => {
     return (
       <Card
       image={item.image?item.image:''}

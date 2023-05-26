@@ -35,7 +35,7 @@ const Contact = (props) => {
 
   return (
     <Sheet className={`${props.className ? props.className : ''}`}>
-      <div className='w-full bg-[#EEEEEE66] rounded-[20px] py-10 wow fadeInUp' data-wow-offset='400'>
+      <div id='Contact' className='w-full bg-[#EEEEEE66] rounded-[20px] py-10 wow fadeInUp' data-wow-offset='400'>
         <Text className='mx-auto w-fit text-[#15265C]' type={'title'}>
           Never Miss A Drop!
         </Text>
