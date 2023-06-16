@@ -10,6 +10,7 @@ import {
   Route,
   Form,
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 //import SellNFT from './components/SellNFT';
 //import Marketplace from './components/Marketplace';
 //import Profile from './components/Profile';
@@ -37,7 +38,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <>
-  
+  <ToastContainer />
   <Background></Background>
     <BrowserRouter>
     <Navbar></Navbar>

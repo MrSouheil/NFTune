@@ -1,4 +1,6 @@
 import React from 'react'
+import { toast, ToastContainer, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import profile1 from '../../../assets/profile1.png';
 import profile2 from '../../../assets/profile2.png';
 import profile3 from '../../../assets/profile3.png';
@@ -6,6 +8,10 @@ import Button from '../button/Button';
 import Text from '../text/Text';
 import MarketplaceJSON from '../../../Marketplace.json'
 
+
+const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
 const Card = (props) => {
     const { disabled, price = 'unknown', NftName = 'unknown', Artist = 'unknown', Duration = 0, image = 'https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0' } = props
 
@@ -30,24 +36,72 @@ const Card = (props) => {
             //Pull the deployed contract instance
             let contract = new ethers.Contract(MarketplaceJSON.address, MarketplaceJSON.abi, signer);
             const salePrice = ethers.utils.parseUnits(price, 'ether')
-            alert("Buying the NFT... Please Wait (Upto 5 mins)")
+            toast.info("Buying the NFT... Please Wait", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+                transition: Flip,
+                icon: "🚀",
+                })
             //run the executeSale function
+            await sleep(3200);
             let transaction = await contract.executeSale(tokenId, { value: salePrice });
             await transaction.wait();
 
-            alert('You successfully bought the NFT!');
+            toast.success('You successfully bought the NFT!', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+                transition: Flip,
+                });
 
         }
         catch (e) {
-            if (e.message.includes("ERC721")) {
-                alert("You are the owner of this NFT.");
+            if (e.message.includes("incorrect owner")) {
+                toast.warning("You are the owner of this NFT.", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "dark",
+                    transition: Flip,
+                    });
             } else {
                 if (e.message.includes("denied")) {
-                    alert("NFT purchase cancelled.")
+                    toast.warning("NFT purchase cancelled.", {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                        transition: Flip,
+                        icon: "❌",
+                        })
                 }
                 else {
                     // Handle other errors
-                    alert("An error occurred during the NFT purchase.");
+                    toast.error("An error occurred during the NFT purchase.", {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "dark",
+                        transition: Flip,
+                        });
                 }
             }
         }
