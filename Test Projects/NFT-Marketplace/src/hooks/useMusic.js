@@ -1,7 +1,7 @@
-const UseMusic=(audioPlayer,audio)=>{
+const UseMusic = (audioPlayer, audio) => {
     if (!audioPlayer.paused) {
         audioPlayer.pause();
     }
-    audioPlayer.src = audio ;
+    audioPlayer.src = audio;
 }
 export default UseMusic;

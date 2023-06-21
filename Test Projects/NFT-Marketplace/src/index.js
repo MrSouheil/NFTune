@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -38,20 +38,20 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <>
-  <ToastContainer />
-  <Background></Background>
+    <ToastContainer />
+    <Background></Background>
     <BrowserRouter>
-    <Navbar></Navbar>
+      <Navbar></Navbar>
       <Routes>
-      <Route path="/" element={<Homepage/>}/>
-        <Route path="/about-us" element={<AboutUs />}/>
-        <Route path="/sellNFT" element={<UploadNft/>}/> 
-        <Route path="/Explore" element={<Explore />}/> 
-        <Route path="/profile" element={<MyNfts />}/> 
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/sellNFT" element={<UploadNft />} />
+        <Route path="/Explore" element={<Explore />} />
+        <Route path="/profile" element={<MyNfts />} />
       </Routes>
     </BrowserRouter>
     <Footer></Footer>
-    </>
+  </>
 );
 
 

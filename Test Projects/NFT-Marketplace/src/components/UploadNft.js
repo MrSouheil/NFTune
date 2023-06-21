@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Sheet from './basic/sheet/Sheet';
 import Text from './basic/text/Text';
 import Button from '../components/basic/button/Button'
@@ -9,7 +9,7 @@ import Marketplace from '../Marketplace.json';
 import { useLocation } from "react-router";
 import WOW from 'wowjs';
 import 'wowjs/css/libs/animate.css';
-   
+
 const UploadNft = () => {
   useEffect(() => {
     const wow = new WOW.WOW();
@@ -30,7 +30,7 @@ const UploadNft = () => {
   //     file.files.length > 0 ? setState(file.files[0].name) : setState('Choose File')
   //   });
   // }
-  
+
   useLogin();
 
   //This function uploads the NFT image to IPFS, our decentralized online database
@@ -54,13 +54,13 @@ const UploadNft = () => {
     var file = e.target.files[0];
     try {
       const audio = new Audio();
-      audio.addEventListener('loadedmetadata', function() {
+      audio.addEventListener('loadedmetadata', function () {
         const audioDuration = audio.duration;
         setAudioDuration(audioDuration);
       });
       audio.src = URL.createObjectURL(file);
       audio.load();
-  
+
       // Upload the audio file to IPFS
       const response = await uploadFileToIPFS(file);
       if (response.success === true) {
@@ -71,13 +71,13 @@ const UploadNft = () => {
       console.log("Error during audio upload", e);
     }
   }
-  
+
   async function uploadMetadataToIPFS() {
     const { name, description, price } = formParams;
     if (!name || !description || !price || !fileURL || !audioURL || !audioDuration) {
       return;
     }
-  
+
     const nftJSON = {
       name,
       description,
@@ -86,7 +86,7 @@ const UploadNft = () => {
       audio: audioURL,
       duration: audioDuration
     };
-  
+
     try {
       const response = await uploadJSONToIPFS(nftJSON);
       if (response.success === true) {
@@ -97,7 +97,7 @@ const UploadNft = () => {
       console.log("Error uploading JSON metadata:", e);
     }
   }
-  
+
 
   //This function lists the NFT on the blockchain, handles payments and upload
   async function listNFT(e) {
