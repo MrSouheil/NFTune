@@ -1,5 +1,4 @@
-Integrating Metamask transactions inside a website to buy/sell NFTs through it.
+<h1> NFTune is an audio NFT marketplace project allowing you to buy and sell audio NFTs. </h1>
 
-Test-Projects are used to learn basics and features. Each test project is made following documentations and personal knowledge.
-
-The final project is under /NFT-Marketplace/ folder. Ready to run using 'npm start'.
+<h2> Project is made in React JS, Tailwind CSS, and Solana for the smart contract. </h2>
+<h3> This project currently utilizes Metamask wallet only, other wallets in the future. </h3>
