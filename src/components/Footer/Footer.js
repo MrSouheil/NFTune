@@ -6,8 +6,8 @@ import Copyrights from './Copyrights'
 const Footer = () => {
   return (
     <footer className='relative'>
-        <Contact className={'mb-10'}></Contact>
-        <GetInTouch className={'mb-10'}></GetInTouch>
+        <Contact className={'md:mb-10 mb-5' }></Contact>
+        <GetInTouch className={'md:mb-10 mb-5'}></GetInTouch>
         <Copyrights></Copyrights>
         
     </footer>

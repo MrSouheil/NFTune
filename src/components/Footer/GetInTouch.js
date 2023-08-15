@@ -29,11 +29,14 @@ const GetInTouch = (props) => {
         </div>
         <div className=''>
             <Text className={'text-white border-b-4 border-[#2EE09A] w-fit mb-[15px] lg:justify-self-end'} type={'subTitle'}>Pages</Text>
+           <div className='max-md:flex gap-[20px] justify-between flex-wrap' >
             <Text type={'text'}>Home Page</Text>
             <Text type={'text'}>About Us</Text>
             <Text type={'text'}>Explore</Text>
             <Text type={'text'}>My Profile</Text>
             <Text type={'text'}>Contact US</Text>
+            </div>
+          
         </div>
     </Grid>
     </Sheet>

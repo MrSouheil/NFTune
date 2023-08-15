@@ -107,7 +107,7 @@ const Card = (props) => {
         }
     }
     return (
-        <div className={`relative overflow-hidden rounded-[20px] ${props.className} drop-shadow-[-16px_4px_9px_rgba(0,0,0,0.25)] h-[453px] bg-[#EEEEEE66]`}>
+        <div className={`relative overflow-hidden rounded-[20px] ${props.className} drop-shadow-[-16px_4px_9px_rgba(0,0,0,0.25)] h-[453px] bg-[#EEEEEE66] max-md:min-w-full`}>
             <img onError={(event) => {
                 event.target.src = "https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0"; // Replace with the path to your placeholder image
             }} className='h-full w-full' src={image} alt={'token image'}></img>

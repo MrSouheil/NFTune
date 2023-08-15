@@ -65,7 +65,7 @@ const Explore = () => {
       <Sheet>
         <Text type={'title'} className={'text-white mx-auto w-fit '}>Exclusive this week!</Text>
         <Text className={'w-fit text-white text-center mx-auto mb-5'} type={'subTitle'}>Check now the top trending NFT songs for this week!<br />Discover a new way to own and experience music with our exclusive NFT songs</Text>
-        <Grid className='gap-20'>
+        <div className='gap-[20px] md:gap-20 md:grid flex overflow-scroll md:grid-cols-2 lg:grid-cols-3'>
           {loading && !data ? <img className='col-span-3 max-w-[263px] mx-auto' src={'loader.gif'} alt='image loader' /> : ''}
           {data && data.slice(0, 3).map((item, index) => {
             return (
@@ -77,16 +77,16 @@ const Explore = () => {
                 NftName={item.name}
                 Duration={item.duration}
                 disabled={index % 2 === 0 ? 'true' : ''}
-                className={index % 2 === 0 ? 'w-[373px] h-[434px] place-self-center' : 'h-[556px] w-[100%] place-self-center'}
+                className={index % 2 === 0 ? 'md:w-[373px] md:h-[434px] md:place-self-center' : 'md:h-[556px] md:w-[100%] md:place-self-center'}
               ></Card>
             );
           })}
-        </Grid>
+        </div>
 
         <Text type={'title'} className={'text-white mx-auto w-fit  pt-20 '}>Explore our NFT collection!</Text>
         <Text className={'w-fit text-white text-center mx-auto mb-[20px]'} type={'subTitle'}>Discover rare recordings, limited-edition merchandise, <br />exclusive digital artwork, and concert experiences.</Text>
         <div className='relative rounded-[20px] w-[300px] mx-auto mb-20'><input className='w-full h-full rounded-[20px] bg-[#EEEEEE66] py-[10px] pl-[36px]' placeholder='Search'></input></div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 relative mb-20'>
+        <div className='md:grid flex overflow-scroll md:grid-cols-2 lg:grid-cols-3 gap-[20px] md:gap-20 relative mb-20'>
           {loading && !data ? <img className='col-span-3 max-w-[263px] mx-auto' src={'loader.gif'} alt='image loader' /> : ''}
           {data && data.slice(3, 9).map((item, index) => {
             return (

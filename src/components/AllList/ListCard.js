@@ -22,15 +22,15 @@ const ListCard = (data) => {
   
   return (
     
-    <div onClick={data.onClick} className={`flex gap-[20px]  hover:bg-[#ffffff7d] ${data.active?'bg-[#ffffff9d]':''} rounded-[20px] w-full py-[13px]  w-full px-[16px] transition-all ease-in ${data.className}`}>
-        <div className='flex flex-col gap-[5px] items-center justify-center h-[full]  '>
-            <div className='w-[25px] h-[1px] border border-solid border-white'></div>
-            <div className='w-[25px] h-[1px] border border-solid border-white'></div>
-            <div className='w-[25px] h-[1px] border border-solid border-white'></div>
-            <div className='w-[25px] h-[1px] border border-solid border-white'></div>
+    <div onClick={data.onClick} className={`flex items-center gap-[20px]  hover:bg-[#ffffff7d] ${data.active?'bg-[#ffffff9d]':'max-md:bg-[#ffffff2d] '} rounded-[20px] w-full py-[13px]  w-full px-[16px] transition-all ease-in ${data.className}`}>
+        <div className='flex flex-col gap-[3px] md:gap-[5px] items-center justify-center h-[full]  '>
+            <div className='w-[15px] md:w-[25px] h-[1px] border border-solid border-white'></div>
+            <div className='w-[15px] md:w-[25px] h-[1px] border border-solid border-white'></div>
+            <div className='w-[15px] md:w-[25px] h-[1px] border border-solid border-white'></div>
+            <div className='w-[15px] md:w-[25px] h-[1px] border border-solid border-white'></div>
         </div>
-        <div className='rounded-[10px] w-[80px] bg-[#D9D9D9] aspect-square border-hidden '>
-            <img className='w-full h-full rounded-[10px] object-cover' src={data.data.image?data.data.image:'https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0'}></img>
+        <div className='rounded-[10px]  w-[50px] h-[50px] md:h-[80px]  md:w-[80px] bg-[#D9D9D9] aspect-square border-hidden '>
+            <img className='w-full md:h-full h-auto rounded-[10px] object-cover' src={data.data.image?data.data.image:'https://tse2.mm.bing.net/th?id=OIP.kRSxqqns41UFBXWO3_q-iQHaHa&pid=Api&P=0'}></img>
         </div>
         <div>
             <Text type='text' className='text-white w-max'><strong>Nft Name:</strong> {data.data.name?data.data.name:'unknown'}</Text>

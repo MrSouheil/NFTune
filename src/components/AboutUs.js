@@ -12,7 +12,7 @@ const AboutUs = () => {
   }, []);
   return (
     <Sheet>
-      <div className='relative grid grid-cols-2'>
+      <div className='relative md:grid grid-cols-2 flex flex-col'>
         <div className='wow fadeInLeft'>
           <Text className={'text-white leading-[40px]'} type={'title'}>About us</Text>
           <Text className={'mb-[20px] text-white'} type={'subTitle'}>Get to know more about us!!</Text>
@@ -20,7 +20,7 @@ const AboutUs = () => {
           <Text className={'max-w-[808px] mb-[20px]'} type={'text'}>At our website, we believe that music has the power to connect people from all walks of life. That's why we strive to create a community of like-minded individuals who appreciate the artistry and creativity behind every song. We understand that music has the ability to evoke emotions, inspire change, and bring people together, and we are committed to providing a platform that allows for the discovery of new and exciting music-related NFTs</Text>
         </div>
         <div className='wow fadeInRight'>
-          <img className='w-full h-full' src={Background} alt={'Mobile Image'}></img>
+          <img className='w-full h-full  max-md:max-w-[240px] max-md:mx-auto' src={Background} alt={'Mobile Image'}></img>
         </div>
       </div>
     </Sheet>

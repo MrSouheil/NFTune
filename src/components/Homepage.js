@@ -19,17 +19,17 @@ const Homepage = () => {
 
 
                 <Sheet className=''>
-                    <div className="grid grid-cols-2 items-center">
+                    <div className="md:grid md:grid-cols-2 items-center gap-y-[30px] flex flex-col-reverse max-md:mb-[30px]">
                         <div className="align-self-start wow fadeInLeft">
                             <div className="">
-                                <Text className={'max-w-[509px] leading-[40px] text-white'} type={'title'}>Discover,Collect,Buy and sell EXTRAORDINARY NFTsongs!</Text>
-                                <Text className={'mb-[10px] text-white'} type={'subTitle'}>Buy NFT songs and make it yours for eternity</Text>
-                                <Text className={'max-w-[453px] mb-[30px]'} type={'text'}>A website for buying NFT songs where users can purchase unique, non-fungible tokens (NFTs) that represent ownership rights to specific songs or pieces of music.  </Text>
-                                <div className="flex gap-x-[3.3125rem] items-center mb-[50px]">
+                                <Text className={'max-w-[509px] leading-[30px] md:leading-[40px] text-white max-md:text-center'} type={'title'}>Discover,Collect,Buy and sell EXTRAORDINARY NFTsongs!</Text>
+                                <Text className={'mb-[10px] text-white max-md:text-center'} type={'subTitle'}>Buy NFT songs and make it yours for eternity</Text>
+                                <Text className={'max-w-[453px] mb-[30px] max-md:text-center'} type={'text'}>A website for buying NFT songs where users can purchase unique, non-fungible tokens (NFTs) that represent ownership rights to specific songs or pieces of music.  </Text>
+                                <div className="flex max-md:justify-around md:gap-x-[3.3125rem] items-center mb-[30px] md:mb-[50px]">
                                     <Link to='/Explore'><Button >Explore</Button></Link>
                                     <Link className="text-decoration-none" to="/Explore"><Text className={'text-white'} type={'button'}>learn more</Text></Link>
                                 </div>
-                                <div className="flex gap-[70px]">
+                                <div className="flex max-md:justify-between md:gap-[70px]">
                                     <div className="flex items-center justify-center flex-col">
                                         <Text type={'data'}>100k</Text>
                                         <Text type={'text'}>Total Songs</Text>
@@ -45,11 +45,11 @@ const Homepage = () => {
                                 </div>
                             </div>
                         </div>
-                        <img className="max-w-[37rem] wow fadeInRight" src={mobile}></img>
+                        <img className="md:max-w-[37rem] max-md:max-w-[240px] max-md:mx-auto wow fadeInRight" src={mobile}></img>
                     </div>
                     <div >
                         <Text type={'text'}>powered by</Text>
-                        <img src={metamask} alt='Metamask-Logo'></img>
+                        <img className="max-md:max-w-[148px] " src={metamask} alt='Metamask-Logo'></img>
                     </div>
                 </Sheet>
 

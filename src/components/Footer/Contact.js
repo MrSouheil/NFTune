@@ -35,26 +35,26 @@ const Contact = (props) => {
 
   return (
     <Sheet className={`${props.className ? props.className : ''}`}>
-      <div id='Contact' className='w-full bg-[#EEEEEE66] rounded-[20px] py-10 wow fadeInUp' data-wow-offset='400'>
+      <div id='Contact' className='w-full bg-[#EEEEEE66] rounded-[20px] md:py-10 py-[1rem] wow fadeInUp px-[1rem] md:px-[30px]' data-wow-offset='400'>
         <Text className='mx-auto w-fit text-[#15265C]' type={'title'}>
           Never Miss A Drop!
         </Text>
         <Text
           type={'text'}
-          className={'text-center mx-auto mb-5 text-[#15265C] max-w-[716px]'}
+          className={'text-center mx-auto mb-[30px] md:mb-5 text-[#15265C] max-w-[716px]'}
         >
           Join our community today and be the first to know about our latest exclusive NFT songs, artist collaborations, and special promotions. Subscribe now to stay up-to-date and never miss out on the latest news and releases!
         </Text>
-        <div className='mx-auto flex w-fit gap-5'>
+        <div className='mx-auto md:flex w-fit gap-5'>
           <div>
             <input
-              className='email bg-[#D9D9D966] rounded-[20px] h-full pl-5 pr-[100px]'
+              className='email bg-[#D9D9D966] rounded-[20px] h-full pl-5 max-md:py-[5px] md:pr-[100px]'
               type='text'
               placeholder='Enter your email address'
             />
           </div>
           <div>
-            <Button onClick={sendEmail}>Subscribe</Button>
+            <Button className='mx-auto max-md:mt-[20px] max-md:w-full' onClick={sendEmail}>Subscribe</Button>
           </div>
         </div>
         
